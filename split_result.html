@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Split Result - DSplitBill</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #72edf2, #5151e5);
+            margin: 0;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        h1 {
+            color: white;
+            margin-bottom: 20px;
+        }
+        .result-box {
+            background: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.2);
+            width: 90%;
+            max-width: 600px;
+            text-align: center;
+        }
+        .user-share {
+            font-size: 1.2em;
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #f1f1f1;
+            border-radius: 8px;
+        }
+        a {
+            margin-top: 20px;
+            display: inline-block;
+            text-decoration: none;
+            padding: 10px 20px;
+            background-color: #5151e5;
+            color: white;
+            border-radius: 5px;
+        }
+        a:hover {
+            background-color: #3e3ee0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Bill Split Summary</h1>
+    <div class="result-box">
+        {% for person, amount in shares.items() %}
+            <div class="user-share">
+                <strong>{{ person }}</strong> owes: ${{ '%.2f' | format(amount) }}
+            </div>
+        {% endfor %}
+        <a href="{{ url_for('index') }}">Upload Another Receipt</a>
+    </div>
+</body>
+</html>
