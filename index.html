@@ -1,0 +1,43 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Upload Receipt - DSplitBill</title>
+    <style>
+        body {
+            display: flex; flex-direction: column; align-items: center;
+            justify-content: center; height: 100vh; margin: 0;
+            background: linear-gradient(135deg, #72edf2, #5151e5);
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            background: #fff; padding: 30px; border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.2); text-align: center; width: 360px;
+        }
+        input[type="text"], input[type="file"] {
+            width: 90%; padding: 10px; margin: 10px 0;
+            border: 1px solid #ccc; border-radius: 5px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #5151e5; color: white;
+            border: none; border-radius: 5px;
+            cursor: pointer; font-size: 1em;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Upload a Receipt</h1>
+    <form method="POST" enctype="multipart/form-data">
+        <label>Enter names (comma-separated):</label><br>
+        <input type="text" name="usernames" placeholder="e.g., Alice, Bob, Charlie" required><br>
+
+        <label>Select receipt image:</label><br>
+        <input type="file" name="receipt" accept="image/*" required><br>
+
+        <button type="submit">Upload</button>
+    </form>
+</div>
+</body>
+</html>
